@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.javafx_init.controllers.FirstController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_init.controllers.FirstController">
+    <top>
+        <HBox spacing="10.0">
+            <Label text="Produit : " />
+            <TextField fx:id="produitTF" />
+            <Button fx:id="ajouterBtn" onAction="#onAjouterButtonClick" text="Ajouter" />
+         <padding>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </padding>
+        </HBox>
+    </top>
+   <center>
+      <ListView fx:id="produitLv" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Nain de jardin" />
+                  <String fx:value="Piles Alcalines" />
+                  <String fx:value="I'm a Teapot" />
+                  <String fx:value="Sirop d'érable" />
+              </FXCollections>
+          </items>
+      </ListView>
+   </center>
+</BorderPane>
